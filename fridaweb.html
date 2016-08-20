@@ -23,47 +23,62 @@
 		  	<div class="panel-body" style=" word-wrap: break-word;">
 
 		  		<div class="col-md-9 panel-info">
-			  		<ul class="nav nav-tabs">
-			  		  <li role="presentation" class="active"><a href="#">Preview</a></li>
-			  		  <li role="presentation"><a href="#">Encoded</a></li>
-			  		  <li role="presentation"><a href="#">Raw</a></li>
-			  		</ul>
-				    <h4>Request</h4>
-				    <span class="title">
-				    	<span class="expand glyphicon glyphicon-triangle-right" aria-hidden="true"></span>
-				    	<span class="expanded glyphicon glyphicon-triangle-bottom"  aria-hidden="true"></span>
-				    	Headers
-				    </span>
-				    <div class="indented">
-					    {{#each entry.request.headers}}
-					    	{{@key}}: <code>{{this}}</code><br/>
-					    {{/each}}
-				    </div><br/>
-					<span class="title">
-						<span class="expand glyphicon glyphicon-triangle-right" aria-hidden="true"></span>
-						<span class="expanded glyphicon glyphicon-triangle-bottom"  aria-hidden="true"></span>
-						Body
-					</span>
-					<pre class="indented">{{req_body_json}}</pre>
 
-				    <hr>
-					<h4>Response</h4>
-				    <span class="title">
-				    	<span class="expand glyphicon glyphicon-triangle-right" aria-hidden="true"></span>
-				    	<span class="expanded glyphicon glyphicon-triangle-bottom"  aria-hidden="true"></span>
-				    	Headers
-				    </span>
-					<div class="indented">
-						{{#each entry.response.headers}}
-							{{@key}}: <code>{{this}}</code><br/>
-						{{/each}}
-					</div><br/>
-					<span class="title">
-						<span class="expand glyphicon glyphicon-triangle-right" aria-hidden="true"></span>
-						<span class="expanded glyphicon glyphicon-triangle-bottom"  aria-hidden="true"></span>
-						Body
-					</span>
-					<pre class="indented">{{resp_body_json}}</pre>
+			  		<ul class="nav nav-tabs" role="tablist">
+			  		   <li role="presentation" class="active"><a href="#preview_{{id}}" aria-controls="preview_{{id}}" role="tab" data-toggle="tab">Preview</a></li>
+			  		   <li role="presentation"><a href="#encoded_{{id}}" aria-controls="encoded_{{id}}" role="tab" data-toggle="tab">Encoded</a></li>
+			  		   <li role="presentation"><a href="#raw_{{id}}" aria-controls="raw_{{id}}" role="tab" data-toggle="tab">Raw</a></li>
+			  		 </ul>
+			  		 <div class="tab-content">
+			  		 	<div role="tabpanel" class="tab-pane active" id="preview_{{id}}">
+						    <h4>Request</h4>
+						    <span class="title">
+						    	<span class="expand glyphicon glyphicon-triangle-right" aria-hidden="true"></span>
+						    	<span class="expanded glyphicon glyphicon-triangle-bottom"  aria-hidden="true"></span>
+						    	Headers
+						    </span>
+						    <div class="indented">
+							    {{#each entry.request.headers}}
+							    	{{@key}}: <code>{{this}}</code><br/>
+							    {{/each}}
+						    </div><br/>
+							<span class="title">
+								<span class="expand glyphicon glyphicon-triangle-right" aria-hidden="true"></span>
+								<span class="expanded glyphicon glyphicon-triangle-bottom"  aria-hidden="true"></span>
+								Body
+							</span>
+							<pre class="indented">{{req_body_json}}</pre>
+
+						    <hr>
+							<h4>Response</h4>
+						    <span class="title">
+						    	<span class="expand glyphicon glyphicon-triangle-right" aria-hidden="true"></span>
+						    	<span class="expanded glyphicon glyphicon-triangle-bottom"  aria-hidden="true"></span>
+						    	Headers
+						    </span>
+							<div class="indented">
+								{{#each entry.response.headers}}
+									{{@key}}: <code>{{this}}</code><br/>
+								{{/each}}
+							</div><br/>
+							<span class="title">
+								<span class="expand glyphicon glyphicon-triangle-right" aria-hidden="true"></span>
+								<span class="expanded glyphicon glyphicon-triangle-bottom"  aria-hidden="true"></span>
+								Body
+							</span>
+							<pre class="indented">{{resp_body_json}}</pre>
+						</div>
+						<div role="tabpanel" class="tab-pane" id="encoded_{{id}}">
+							<h4>Foobar</h4>
+						</div>
+						<div role="tabpanel" class="tab-pane" id="raw_{{id}}">
+							<h4>Raw request and response</h4>
+							<span class="title">Request</span>
+							<pre>{{raw_request}}</pre>
+							<span class="title">Response</span>
+							<pre>{{raw_response}}</pre>
+						</div>
+					</div>
 				</div>
 				<div class="image col-md-3 col-xs-5">
 					<img style="width:100%" src="data:image/png;base64,{{entry.screenshot}}">
