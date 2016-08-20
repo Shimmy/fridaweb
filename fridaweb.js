@@ -25,10 +25,17 @@ $( document ).ready(function() {
 	});
    
    $(".panel-heading").click(function(e) {
-   	$(this).siblings().toggle();
+   	$(this).siblings().slideToggle();
+   	$(this).find(".expanded").toggle();
+   	$(this).find(".expand").toggle();
    })
+
+   $(this).find(".expand").toggle();
+
    $(".title").click(function(e) {
-   	$(this).next().toggle();
+   	$(this).next().slideToggle();
+   	$(this).find(".expanded").toggle();
+   	$(this).find(".expand").toggle();
    })
 
 });

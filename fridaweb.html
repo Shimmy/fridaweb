@@ -16,28 +16,47 @@
 
 		<script id="request-template" type="text/x-handlebars-template">
 		  <div class="panel panel-default">
-		  	<div class="panel-heading"><b>{{entry.request.method}}</b> {{entry.request.url}}</div>
+		  	<div class="panel-heading">
+		  		<span class="expand glyphicon glyphicon-triangle-right" aria-hidden="true"></span>
+		  		<span class="expanded glyphicon glyphicon-triangle-bottom"  aria-hidden="true"></span>
+		  		<b>{{entry.request.method}}</b> {{entry.request.url}}</div>
 		  	<div class="panel-body" style=" word-wrap: break-word;">
 		  		<div class="col-md-9 panel-info">
 				    <h4>Request</h4>
-				    <span class="title">Headers</span>
+				    <span class="title">
+				    	<span class="expand glyphicon glyphicon-triangle-right" aria-hidden="true"></span>
+				    	<span class="expanded glyphicon glyphicon-triangle-bottom"  aria-hidden="true"></span>
+				    	Headers
+				    </span>
 				    <div class="indented">
 					    {{#each entry.request.headers}}
 					    	{{@key}}: <code>{{this}}</code><br/>
 					    {{/each}}
 				    </div><br/>
-					<span class="title">Body</span>
+					<span class="title">
+						<span class="expand glyphicon glyphicon-triangle-right" aria-hidden="true"></span>
+						<span class="expanded glyphicon glyphicon-triangle-bottom"  aria-hidden="true"></span>
+						Body
+					</span>
 					<pre class="indented">{{req_body_json}}</pre>
 
 				    <hr>
 					<h4>Response</h4>
-					<span class="title">Headers</span>
+				    <span class="title">
+				    	<span class="expand glyphicon glyphicon-triangle-right" aria-hidden="true"></span>
+				    	<span class="expanded glyphicon glyphicon-triangle-bottom"  aria-hidden="true"></span>
+				    	Headers
+				    </span>
 					<div class="indented">
 						{{#each entry.response.headers}}
 							{{@key}}: <code>{{this}}</code><br/>
 						{{/each}}
 					</div><br/>
-					<span class="title">Body</span>
+					<span class="title">
+						<span class="expand glyphicon glyphicon-triangle-right" aria-hidden="true"></span>
+						<span class="expanded glyphicon glyphicon-triangle-bottom"  aria-hidden="true"></span>
+						Body
+					</span>
 					<pre class="indented">{{resp_body_json}}</pre>
 				</div>
 				<div class="image col-md-3 col-xs-5">
