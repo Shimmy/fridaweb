@@ -10,3 +10,9 @@
 .indented {
 	margin-left:10px;
 }
+.truncated-header {
+	width: 100%;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}

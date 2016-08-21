@@ -16,7 +16,7 @@
 
 		<script id="request-template" type="text/x-handlebars-template">
 		  <div class="panel panel-default">
-		  	<div class="panel-heading">
+		  	<div class="panel-heading truncated-header" title="{{entry.request.url}}" alt="{{entry.request.url}}">
 		  		<span class="expand glyphicon glyphicon-triangle-right" aria-hidden="true"></span>
 		  		<span class="expanded glyphicon glyphicon-triangle-bottom"  aria-hidden="true"></span>
 		  		<b>{{entry.request.method}}</b> {{entry.request.url}}</div>
@@ -32,6 +32,17 @@
 			  		 <div class="tab-content">
 			  		 	<div role="tabpanel" class="tab-pane active" id="preview_{{id}}">
 						    <h4>Request</h4>
+						   
+						    <span class="title">
+						    	<span class="expand glyphicon glyphicon-triangle-right" aria-hidden="true"></span>
+						    	<span class="expanded glyphicon glyphicon-triangle-bottom"  aria-hidden="true"></span>
+						    	{{entry.request.method}}
+						    </span>
+						    
+						    <div class="indented">
+								<samp>{{entry.request.url}}</samp>
+						    </div>
+						    <br/>
 						    <span class="title">
 						    	<span class="expand glyphicon glyphicon-triangle-right" aria-hidden="true"></span>
 						    	<span class="expanded glyphicon glyphicon-triangle-bottom"  aria-hidden="true"></span>
@@ -39,7 +50,7 @@
 						    </span>
 						    <div class="indented">
 							    {{#each entry.request.headers}}
-							    	{{@key}}: <code>{{this}}</code><br/>
+							    	<samp>{{@key}}:</samp> <code>{{this}}</code><br/>
 							    {{/each}}
 						    </div><br/>
 							<span class="title">
@@ -51,6 +62,18 @@
 
 						    <hr>
 							<h4>Response</h4>
+							<span class="title">
+								<span class="expand glyphicon glyphicon-triangle-right" aria-hidden="true"></span>
+								<span class="expanded glyphicon glyphicon-triangle-bottom"  aria-hidden="true"></span>
+								Info
+							</span>
+							<div class="indented">
+								<code>{{entry.response.statusCode}}</code>
+								<samp>
+									{{entry.response.url}}
+							    </samp>
+							</div>
+						    <br/>
 						    <span class="title">
 						    	<span class="expand glyphicon glyphicon-triangle-right" aria-hidden="true"></span>
 						    	<span class="expanded glyphicon glyphicon-triangle-bottom"  aria-hidden="true"></span>
@@ -58,7 +81,7 @@
 						    </span>
 							<div class="indented">
 								{{#each entry.response.headers}}
-									{{@key}}: <code>{{this}}</code><br/>
+									<samp>{{@key}}:</samp> <code>{{this}}</code><br/>
 								{{/each}}
 							</div><br/>
 							<span class="title">
@@ -94,12 +117,10 @@
  </script>
 	<body >
 		
-	<div class="container">
+	<div class="full-container">
 	<br/>
-		<div class="row">
 			<div class="col-md-12" id="container">
 			</div>
-		</div>
 	</div>
 
 	</body>
